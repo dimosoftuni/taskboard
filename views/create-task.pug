@@ -1,0 +1,9 @@
+extends layout.pug
+
+block head
+  - var pageTitle = 'Create Task'
+
+block content
+  form(method='POST')
+    include task-form-data
+    button#create(type='submit') Create

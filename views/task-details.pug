@@ -1,0 +1,32 @@
+extends layout.pug
+
+block head
+  - var pageTitle = 'Task Details'
+
+block content
+  h1 View Task Details
+
+  table(class='task-details' id=`${'task' + task.id}`)
+    tr.taskid
+      th ID
+      td #{task.id} 
+    tr.title
+      th Title
+      td #{task.title} 
+    tr.description
+      th Description
+      td.description #{task.description} 
+    tr.board
+      th Board
+      td.board #{task.board.name} 
+    tr.dateCreated
+      th Date Created
+      td.dateCreated #{date2text(task.dateCreated)}
+    tr.dateModified
+      th Date Modified
+      td.dateModified #{date2text(task.dateModified)}
+    tr.actions
+      th Actions
+      td.actions
+        a.button(href=`/tasks/edit/${task.id}`) Edit Task
+  

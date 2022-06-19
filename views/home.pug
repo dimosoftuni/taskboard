@@ -1,0 +1,28 @@
+extends layout.pug
+
+block head
+  - var pageTitle = 'Welcome'
+
+block content
+  section.home-page
+    span Tasks: <b>#{tasks.length}</b>
+    ul
+      each board in boards
+        li
+          span.boardName #{board.boardName}
+          span :&nbsp;
+          b.tasksCount #{board.tasks.length}
+
+  div.home-page-icons
+    a(href='/boards') 
+      span.icon &#x1f5b9;
+      span Task Board
+    a(href='/tasks/create')
+      span.icon &#10010;
+      span New Task
+    a(href='/tasks/search')
+      span.icon &#8981;
+      span Search Tasks
+    a(href='/api')
+      span.icon &#9874;
+      span RESTful API

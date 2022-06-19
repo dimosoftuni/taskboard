@@ -1,0 +1,14 @@
+table(class='task-entry' id=`${'task' + task.id}`)
+  tr.title
+    th Title
+    td #{task.title} 
+  tr.description
+    th Description
+    td
+      div.description #{task.description} 
+  tr.actions
+    th Actions
+    td 
+      a.button(href=`/tasks/view/${task.id}`) View
+      span 
+      a.button(href=`/tasks/edit/${task.id}`) Edit

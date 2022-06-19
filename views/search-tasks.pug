@@ -1,0 +1,27 @@
+extends layout.pug
+
+block head
+  - var pageTitle = 'Search Tasks'
+
+block content
+  if keyword
+    h1 Tasks Matching Keyword "#{keyword}"
+    if tasks.length == 0
+      div#searchResult No tasks found.
+      br
+    else
+      div#searchResult #{tasks.length} tasks found.
+      br
+      div.tasks-grid
+        each task in tasks
+          div.task
+            include render-task
+      br
+
+  form(method='GET')
+    table.tasks-entry.form
+      tr
+        th Keyword
+        td
+          input#keyword(type='text', name='keyword', value=`${keyword}`)
+    button#search(type='submit') Search

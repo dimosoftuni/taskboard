@@ -1,0 +1,19 @@
+table.form
+  tr.title
+    th Title
+    td
+      input#title(type='text', name='title', value=`${title}`)
+  tr.description
+    th Description
+    td
+      textarea#description(name='description', rows='10')
+        | #{description}
+  tr.board
+    th Board
+    td
+      select#boardName(name='boardName')
+        each b in boards
+          if (b.name == boardName)
+            option(value=`${b.name}` selected) #{b.name}
+          else
+            option(value=`${b.name}`) #{b.name}

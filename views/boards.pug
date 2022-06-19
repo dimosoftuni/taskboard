@@ -1,0 +1,13 @@
+extends layout.pug
+
+block head
+  - var pageTitle = 'Task Board'
+
+block content
+  div.tasks-grid
+    each board in boards
+      div.task
+        if (board.tasks.length > 0)
+            h1 #{board.boardName}
+            each task in board.tasks
+              include render-task
